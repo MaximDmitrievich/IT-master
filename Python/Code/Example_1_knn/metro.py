@@ -1,27 +1,45 @@
-import pandas as pd
-import numpy as np
-import ast
+import csv
 
-def parse_to_dict(array):
-    array[-1] = ast.literal_eval(array[-1])
-    return array
+from math import fabs
 
+class Station:
+    def __init__(self, names, neighbors, beverage, station_id, line_id):
+        self.names = names
+        self.neighbors = neighbors
+        self.beverage = beverage
+        self.coverage_marker = False
+        self.station_id = int(station_id)
+        self.line_id = int(line_id)
 
-class Metro:
-    def __init__(self, filepath):
-        df = pd.read_csv(filepath, sep='\t', error_bad_lines=False)
-        self.raw_data = np.apply_along_axis(parse_to_dict, 1, df.to_numpy())
-        self.adj_matrix = pd.DataFrame(np.zeros(shape=(self.raw_data.shape[0], self.raw_data.shape[0])), \
-            columns=df['LineOrder'] + '|' + df['Name'], \
-            index=df['LineOrder'] + '|' + df['Name'])
-    
-    def __metric__(self, st_from, st_to):
-        if st_from['LineOrder'] == st_to['LineOrder']:
-            return 0
+    def __eq__(self, other):
+        for name in self.names:
+            if name in other.names:
+                return True
+        return False
 
-    
-    def print(self):
-        print(self.raw_data)
-        print(self.adj_matrix)
-
+    def remove_repetition(self):
+        i = 0
+        while i < len(self.names):
+            j = i + 1
+            while j < len(self.names):
+                if self.names[i] == self.names[j]:
+                    del self.names[j]
+                else:
+                    j += 1
+            j = 0
+            while j < len(self.neighbors):
+                if self.names[i] == self.neighbors[j]:
+                    del self.neighbors[j]
+                else:
+                    j += 1
+            i += 1
+        i = 0
+        while i < len(self.neighbors):
+            j = i + 1
+            while j < len(self.neighbors):
+                if self.neighbors[i] == self.neighbors[j]:
+                    del self.neighbors[j]
+                else:
+                    j += 1
+            i += 1
     

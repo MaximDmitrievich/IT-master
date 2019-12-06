@@ -5,6 +5,7 @@
     "python.linting.pycodestyleEnabled": false,
     "python.linting.enabled": true,
     "python.linting.pylintArgs": [
-        "--extension-pkg-whitelist=cv2"
+        "--extension-pkg-whitelist=cv2",
+        "--errors-only"
     ]
 }

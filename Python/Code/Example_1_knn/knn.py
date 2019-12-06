@@ -114,6 +114,6 @@ class KNeighborsClassifier:
                         result['tea'] += station.beverage['tea']
                 else:
                     for station in level:
-                        result['coffee'] += station.beverage['coffee'] / self.covered.index(level)**2
-                        result['tea'] += station.beverage['tea'] / self.covered.index(level)**2   
+                        result['coffee'] += station.beverage['coffee'] / self.covered.index(level) ** 2
+                        result['tea'] += station.beverage['tea'] / self.covered.index(level) ** 2
         return result

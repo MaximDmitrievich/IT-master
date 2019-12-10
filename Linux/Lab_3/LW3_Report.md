@@ -647,7 +647,7 @@ du: cannot access ‘sh’: No such file or directory
 ```
 
 * Объяснение происходящего
-  * Завершися процесс, который писал в файл и был поставлен на паузу. Закрылся файловый дескриптор и теперь файл спокойно удалился. 
+  * Завершися процесс, который писал в файл и был поставлен на паузу. Закрылся файловый дескриптор и теперь файл спокойно удалился.
 
 ## Утилиты наблюдения
 
@@ -668,3 +668,67 @@ du: cannot access ‘sh’: No such file or directory
 ```
 
 ### atop через systemd
+
+#### Описание сервиса
+
+```bash
+[Unit] Description=AtopService
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/bin
+ExecStart=/bin/atop
+```
+
+#### Запуск сервиса
+
+```bash
+[root@centos7-vm system]# systemctl load atops.service
+Unknown operation 'load'.
+[root@centos7-vm system]# systemctl enable atops.service
+Failed to execute operation: Bad message
+[root@centos7-vm system]# vim atops.service
+[root@centos7-vm system]# systemctl status atops.service
+● atops.service - AtopService
+   Loaded: loaded (/etc/systemd/system/atops.service; static; vendor preset: disabled)
+   Active: inactive (dead)
+
+Nov 14 18:02:21 centos7-vm systemd[1]: [/etc/systemd/system/atops.service:1] Invalid section header '[Unit] Description=AtopService'
+Nov 14 18:05:33 centos7-vm systemd[1]: [/usr/lib/systemd/system/atops.service:1] Invalid section header '[Unit] Description=AtopService'
+Nov 14 18:06:32 centos7-vm systemd[1]: [/etc/systemd/system/atops.service:1] Invalid section header '[Unit] Description=AtopService'
+Nov 14 18:06:51 centos7-vm systemd[1]: [/etc/systemd/system/atops.service:1] Invalid section header '[Unit] Description=AtopService'
+[root@centos7-vm system]# systemctl enable atops.service
+[root@centos7-vm system]# systemctl start atops.service
+[root@centos7-vm system]# systemctl status atops.service
+● atops.service - AtopService
+   Loaded: loaded (/etc/systemd/system/atops.service; static; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-14 18:07:26 UTC; 6s ago
+ Main PID: 30821 (atop)
+   CGroup: /system.slice/atops.service
+           └─30821 /bin/atop
+
+Nov 14 18:07:26 centos7-vm atop[30821]: 985  0.00s  0.00s     0K     0K     0K     0K    1 S     0   0% xfs_mru_cache
+Nov 14 18:07:26 centos7-vm atop[30821]: 990  0.00s  0.00s     0K     0K     0K     0K    1 S     0   0% xfs-buf/sda1
+Nov 14 18:07:26 centos7-vm atop[30821]: 991  0.00s  0.00s     0K     0K     0K     0K    1 S     0   0% xfs-data/sda1
+Nov 14 18:07:26 centos7-vm atop[30821]: 994  0.00s  0.00s     0K     0K     0K     0K    1 S     0   0% xfs-conv/sda1
+Nov 14 18:07:26 centos7-vm atop[30821]: 995  0.00s  0.00s     0K     0K     0K     0K    1 S     0   0% xfs-cil/sda1
+Nov 14 18:07:26 centos7-vm atop[30821]: 996  0.00s  0.00s     0K     0K     0K     0K    1 S     0   0% xfs-reclaim/sd
+Nov 14 18:07:26 centos7-vm atop[30821]: 997  0.00s  0.00s     0K     0K     0K     0K    1 S     0   0% xfs-log/sda1
+Nov 14 18:07:26 centos7-vm atop[30821]: 998  0.00s  0.00s     0K     0K     0K     0K    1 S     0   0% xfs-eofblocks/
+Nov 14 18:07:26 centos7-vm atop[30821]: 1109  0.00s  0.00s     0K     0K     0K     0K    1 S     0   0% rpciod
+Nov 14 18:07:26 centos7-vm atop[30821]: 1111  0.00s  0.00s     0K     0K     0K     0K    1 S     0   0% xprtiod
+```
+
+### Запустить dd на генерацию файла на 3 GB
+
+```bash
+dd of=file bs=1 count=0 seek=3G
+```
+
+### удалите сгенеренный файл
+
+```bash
+2395
+
+```

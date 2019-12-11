@@ -1,6 +1,6 @@
 {
     "workbench.settings.editor": "json",
-    "python.pythonPath": "C:\\Users\\mdere\\AppData\\Local\\Programs\\Python\\Python38\\python.exe",
+    "python.pythonPath": "C:\\Users\\mdere\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
     "python.linting.pylintEnabled": true,
     "python.linting.pycodestyleEnabled": false,
     "python.linting.enabled": true,

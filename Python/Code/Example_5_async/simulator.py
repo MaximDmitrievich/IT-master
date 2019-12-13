@@ -35,11 +35,11 @@ class Simulator:
         else:
             time = yield self.Event(time, cust.get_id(), 'getting order', 'waiting cooking')
             cust.set_state(time, 'getting order', 'waiting cooking')
-            cust = self.delivery.get()
             time = yield self.Event(time, cust.get_id(), 'going to eat', 'getting order')
             cust.set_state(time, 'going to eat', 'getting order')
             time = yield self.Event(time, cust.get_id(), 'none', 'going to eat')
             cust.set_state(time, 'none', 'going to eat')
+            cust = self.delivery.get()
     
     def __compute_duration__(self, prev_act):
         if prev_act == 'making order':

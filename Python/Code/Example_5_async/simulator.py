@@ -14,28 +14,32 @@ class Simulator:
         self.procs = dict()
         self.Event = namedtuple('Event', 'time proc state prev_state')
 
-    def __customer_proc__(self, start_time=0):
-        cust = Customer(start_time, 'come to order queue', 'none')
+    def __customer_proc__(self, cus_id, start_time=0):
+        cust = Customer(cus_id, start_time, 'come to order queue', 'none')
         self.cashier.put(cust)
         t, st, pr = cust.get_state()
         time = yield self.Event(t, cust.get_id(), st, pr)
-        for i in range(self.cashier.qsize()):
-            time, _, state, prev = yield self.Event(time, cust.get_id(), 'waiting order', 'come to order queue')
-            cust.set_state(time, state, prev)
-        time, _, state, prev = yield self.Event(time, cust.get_id(), 'making order', 'waiting order')
-        cust.set_state(time, state, prev)
-        cust = self.cashier.get()
-        time, _, state, prev = yield self.Event(time, cust.get_id(), 'come to cooking queue', 'making order')
-        cust.set_state(time, state, prev)
-        self.delivery.put(cust)
-        for i in range(self.delivery.qsize()):
-            time, _state, prev = yield self.Event(time, cust.get_id(), 'waiting cooking', 'come to cooking queue')
-            cust.set_state(time, state, prev)
-        time, _, state, prev = yield self.Event(time, cust.get_id(), 'getting order', 'waiting cooking')
-        cust.set_state(time, state, prev)
-        cust = self.delivery.get()
-        time, _, state, prev = yield self.Event(time, cust.get_id(), 'going to eat', 'getting order')
-        time, _, state, prev = yield self.Event(time, cust.get_id(), 'none', 'going to eat')
+        while cust is not self.cashier.queue[0]:
+            time = yield self.Event(time, cust.get_id(), 'waiting order', 'come to order queue')
+            cust.set_state(time, 'waiting order', 'come to order queue')
+        else:
+            time = yield self.Event(time, cust.get_id(), 'making order', 'waiting order')
+            cust.set_state(time, 'making order', 'waiting order')
+            cust = self.cashier.get()
+            time = yield self.Event(time, cust.get_id(), 'come to cooking queue', 'making order')
+            cust.set_state(time, 'come to cooking queue', 'making order')
+            self.delivery.put(cust)
+        while cust is not self.delivery.queue[0]:
+            time = yield self.Event(time, cust.get_id(), 'waiting cooking', 'come to cooking queue')
+            cust.set_state(time, 'waiting cooking', 'come to cooking queue')
+        else:
+            time = yield self.Event(time, cust.get_id(), 'getting order', 'waiting cooking')
+            cust.set_state(time, 'getting order', 'waiting cooking')
+            cust = self.delivery.get()
+            time = yield self.Event(time, cust.get_id(), 'going to eat', 'getting order')
+            cust.set_state(time, 'going to eat', 'getting order')
+            time = yield self.Event(time, cust.get_id(), 'none', 'going to eat')
+            cust.set_state(time, 'none', 'going to eat')
     
     def __compute_duration__(self, prev_act):
         if prev_act == 'making order':
@@ -53,13 +57,14 @@ class Simulator:
         return interval
 
     def run(self):
-        self.procs = dict({i: self.__customer_proc__() for i in range(1, self.queue_items)})
+        self.procs = dict({i: self.__customer_proc__(i) for i in range(1, self.queue_items)})
         for _, proc in sorted(self.procs.items()):
             first_event = next(proc)
             self.events.put(first_event)
             
 
         print('*** Start simulation ***\n')
+        print('time\tid\tstate')
         sim_time = 0
         while sim_time < self.end_time:
             if self.cashier.qsize() == 0 and self.delivery.qsize() == 0:
@@ -67,7 +72,7 @@ class Simulator:
                 break
             current_event = self.events.get()
             sim_time, proc_id, state, prev_state = current_event
-            print(f'Customer {proc_id} ' + proc_id * ' ' + f'current state: {state}')
+            print(f'{sim_time}\t{proc_id}\t{state}')
             active = self.procs[proc_id]
             next_time = sim_time + self.__compute_duration__(prev_state)
             try:
@@ -77,6 +82,6 @@ class Simulator:
             else:
                 self.events.put(next_event)
         else: 
-            print('*** end of simulation ***')
+            print('*** End simulation ***')
 
         

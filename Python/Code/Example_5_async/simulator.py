@@ -37,8 +37,8 @@ class Simulator:
             cust.set_state(time, 'getting order', 'waiting cooking')
             time = yield self.Event(time, cust.get_id(), 'going to eat', 'getting order')
             cust.set_state(time, 'going to eat', 'getting order')
-            time = yield self.Event(time, cust.get_id(), 'none', 'going to eat')
-            cust.set_state(time, 'none', 'going to eat')
+            time = yield self.Event(time, cust.get_id(), 'going home', 'going to eat')
+            cust.set_state(time, 'going home', 'going to eat')
             cust = self.delivery.get()
     
     def __compute_duration__(self, prev_act):
@@ -57,7 +57,7 @@ class Simulator:
         return interval
 
     def run(self):
-        self.procs = dict({i: self.__customer_proc__(i) for i in range(1, self.queue_items)})
+        self.procs = dict({i: self.__customer_proc__(i) for i in range(1, self.queue_items + 1)})
         for _, proc in sorted(self.procs.items()):
             first_event = next(proc)
             self.events.put(first_event)

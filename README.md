@@ -33,7 +33,7 @@ sudakov@ws-dss.com
 
 Отчеты по лабораторным работам
 
-* [Лабораторная работа 2](https://github.com/MaximDmitrievich/IT-master/blob/master/Linux/Lab_1/LW1_Report.md)
+* [Лабораторная работа 1](https://github.com/MaximDmitrievich/IT-master/blob/master/Linux/Lab_1/LW1_Report.md)
 * [Лабораторная работа 2](https://github.com/MaximDmitrievich/IT-master/blob/master/Linux/Lab_2/LW2_Report.md)
 * [Лабораторная работа 3](https://github.com/MaximDmitrievich/IT-master/blob/master/Linux/Lab_3/LW3_Report.md)
 

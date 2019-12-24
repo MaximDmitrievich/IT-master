@@ -36,6 +36,7 @@ sudakov@ws-dss.com
 * [Лабораторная работа 1](https://github.com/MaximDmitrievich/IT-master/blob/master/Linux/Lab_1/LW1_Report.md)
 * [Лабораторная работа 2](https://github.com/MaximDmitrievich/IT-master/blob/master/Linux/Lab_2/LW2_Report.md)
 * [Лабораторная работа 3](https://github.com/MaximDmitrievich/IT-master/blob/master/Linux/Lab_3/LW3_Report.md)
+* [Лабораторная работа 4](https://github.com/MaximDmitrievich/IT-master/blob/master/Linux/Lab_4/LW4_Report.md)
 
 ### Распределенные вычислительные системы
 

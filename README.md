@@ -53,8 +53,8 @@ sudakov@ws-dss.com
 
 Преподаватель: Семенов Григорий Евгеньевич
 
-* [Код](https://github.com/MaximDmitrievich/IT-master/tree/master/HighLevelLangss/Code)
-* [Лекции](https://github.com/MaximDmitrievich/IT-master/blob/master/HighLevelLangss/Lection)
+* [Код](https://github.com/MaximDmitrievich/IT-master/tree/master/HighLevelLangs/Code)
+* [Лекции](https://github.com/MaximDmitrievich/IT-master/blob/master/HighLevelLangs/Lection)
 
 ### Магистерская работа
 

@@ -42,6 +42,20 @@ sudakov@ws-dss.com
 
 * [Achivement 2](https://github.com/MaximDmitrievich/IT-master/tree/master/DCS/Achivement_2)
 
+### Машинное обучение на больших данных
+
+Преподаватель: Кондаратцев Вадим Леонидович
+
+* [Код](https://github.com/MaximDmitrievich/IT-master/tree/master/MachineLearning/Code)
+* [Лекции](https://github.com/MaximDmitrievich/IT-master/blob/master/MachineLearning/Lection)
+
+### Языки программирования высокого уровня
+
+Преподаватель: Семенов Григорий Евгеньевич
+
+* [Код](https://github.com/MaximDmitrievich/IT-master/tree/master/HighLevelLangss/Code)
+* [Лекции](https://github.com/MaximDmitrievich/IT-master/blob/master/HighLevelLangss/Lection)
+
 ### Магистерская работа
 
 * [Исходники](https://github.com/MaximDmitrievich/IT-master/tree/master/MasterWork)

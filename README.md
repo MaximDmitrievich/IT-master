@@ -56,6 +56,12 @@ sudakov@ws-dss.com
 * [Код](https://github.com/MaximDmitrievich/IT-master/tree/master/HighLevelLangs/Code)
 * [Лекции](https://github.com/MaximDmitrievich/IT-master/blob/master/HighLevelLangs/Lection)
 
+### Индустрия 4.0
+
+Преподаватель: Рипецкий Андрей Владимирович
+
+* [Лекции](https://github.com/MaximDmitrievich/IT-master/blob/master/Industry4.0/Lection)
+
 ### Магистерская работа
 
 * [Исходники](https://github.com/MaximDmitrievich/IT-master/tree/master/MasterWork)

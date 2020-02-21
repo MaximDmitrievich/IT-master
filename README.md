@@ -64,7 +64,9 @@ sudakov@ws-dss.com
 
 ### Теория Массового Обслуживания
 
-Преподаватель: 
+Преподаватель: Титов Юрий Павлович
+
+kalengul@mail.ru
 
 * [Лекции](https://github.com/MaximDmitrievich/IT-master/blob/master/TMO/Lection)
 * [Код](https://github.com/MaximDmitrievich/IT-master/tree/master/TMO/Code)

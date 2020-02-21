@@ -62,6 +62,13 @@ sudakov@ws-dss.com
 
 * [Лекции](https://github.com/MaximDmitrievich/IT-master/blob/master/Industry4.0/Lection)
 
+### Теория Массового Обслуживания
+
+Преподаватель: 
+
+* [Лекции](https://github.com/MaximDmitrievich/IT-master/blob/master/TMO/Lection)
+* [Код](https://github.com/MaximDmitrievich/IT-master/tree/master/TMO/Code)
+
 ### Магистерская работа
 
 * [Исходники](https://github.com/MaximDmitrievich/IT-master/tree/master/MasterWork)

@@ -71,6 +71,14 @@ kalengul@mail.ru
 * [Лекции](https://github.com/MaximDmitrievich/IT-master/blob/master/TMO/Lection)
 * [Код](https://github.com/MaximDmitrievich/IT-master/tree/master/TMO/Code)
 
+### Управление проектами
+
+Преподаватель: Вяткин Павел
+
+kalengul@mail.ru
+
+* [Лекции](https://github.com/MaximDmitrievich/IT-master/blob/master/ProjectManagement/Lection)
+
 ### Магистерская работа
 
 * [Исходники](https://github.com/MaximDmitrievich/IT-master/tree/master/MasterWork)

@@ -75,8 +75,6 @@ kalengul@mail.ru
 
 Преподаватель: Вяткин Павел
 
-kalengul@mail.ru
-
 * [Лекции](https://github.com/MaximDmitrievich/IT-master/blob/master/ProjectManagement/Lection)
 * [Домашние работы](https://github.com/MaximDmitrievich/IT-master/blob/master/ProjectManagement/Homework)
 

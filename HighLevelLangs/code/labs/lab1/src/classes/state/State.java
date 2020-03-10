@@ -1,4 +1,4 @@
-package highlevellangs.code.labs.lab1.src.state;
+package highlevellangs.code.labs.lab1.src.classes.state;
 
 import java.util.HashSet;
 import java.util.Random;
@@ -11,7 +11,7 @@ public class State
 
     public State() 
     {
-        this.board = new int[3][3];
+        this.board = new int[4][4];
         Random r = new Random();
         Set<Integer> used = new HashSet<Integer>();
         for (int i = 0; i < board.length; i++) 

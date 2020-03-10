@@ -4,6 +4,13 @@
    // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
    "version": "0.2.0",
    "configurations": [
+   
+        {
+            "type": "java",
+            "name": "Run Java (Launch)",
+            "request": "launch",
+            "mainClass": ""
+        },
         {
             "name": ".NET Core Launch (web)",
             "type": "coreclr",

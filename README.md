@@ -48,6 +48,7 @@ sudakov@ws-dss.com
 
 * [Код](https://github.com/MaximDmitrievich/IT-master/tree/master/MachineLearning/Code)
 * [Лекции](https://github.com/MaximDmitrievich/IT-master/blob/master/MachineLearning/Lection)
+* [Курсовая работа](https://github.com/MaximDmitrievich/IT-master/blob/master/MachineLearning/CourseWork/TimeSeries_CW.ipynb)
 
 ### Языки программирования высокого уровня
 

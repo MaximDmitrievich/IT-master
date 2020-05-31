@@ -11,55 +11,64 @@ import highlevellangs.code.hw.fifthteens.src.classes.boardmodel.Board;
 import highlevellangs.code.hw.fifthteens.src.classes.statemodel.State;
 
 public class Solver implements InterfaceSolver {
-    private List<Board> result = new ArrayList<>();
+    private final List<Board> result = new ArrayList<>();
 
-    public Solver(Board initial) {
-        if(!isSolvable()) return;
+    public Solver(final Board initial) {
+        if (!isSolvable())
+            return;
 
-        PriorityQueue<State> priorityQueue = new PriorityQueue<>(10, new Comparator<State>() {
+        final PriorityQueue<State> priorityQueue = new PriorityQueue<>(10, new Comparator<State>() {
             @Override
-            public int compare(State s1, State s2) {
-                return new Integer(measure(s1)).compareTo(new Integer(measure(s2)));
+            public int compare(final State s1, final State s2) {
+                int res = 0;
+                if (measure(s1) == measure(s2)) {
+                    res = 0;
+                } else if (measure(s1) < measure(s2)) {
+                    res = -1;
+                } else if (measure(s1) > measure(s2)) {
+                    res = 1;
+                }
+                return res;
             }
         });
 
         priorityQueue.add(new State(null, initial));
 
-        while (true){
-            State state = priorityQueue.poll();
-            if(state.getBoard().isGoal()) {
+        while (true) {
+            final State state = priorityQueue.poll();
+            if (state.getBoard().isGoal()) {
                 itemToList(new State(state, state.getBoard()));
                 return;
             }
 
-            Iterator<Board> iterator = state.getBoard().neighbors().iterator();
-            while (iterator.hasNext()){
-                Board board = (Board)iterator.next();
-                if(board != null && !containsInPath(state, board))
+            final Iterator<Board> iterator = state.getBoard().neighbors().iterator();
+            while (iterator.hasNext()) {
+                final Board board = (Board) iterator.next();
+                if (board != null && !containsInPath(state, board))
                     priorityQueue.add(new State(state, board));
             }
 
         }
     }
 
-    private int measure(State item){
+    private int measure(final State item) {
         State item2 = item;
-        int c= 0;
-        int measure = item.getBoard().geth();
-        while (true){
+        int c = 0;
+        final int measure = item.getBoard().geth();
+        while (true) {
             c++;
             item2 = item2.getPrevState();
-            if(item2 == null) {
+            if (item2 == null) {
                 return measure + c;
             }
         }
     }
 
-    private void itemToList(State state){
+    private void itemToList(final State state) {
         State state2 = state;
-        while (true){
+        while (true) {
             state2 = state2.getPrevState();
-            if(state2 == null) {
+            if (state2 == null) {
                 Collections.reverse(result);
                 return;
             }
@@ -67,7 +76,7 @@ public class Solver implements InterfaceSolver {
         }
     }
 
-    private boolean containsInPath(State state, Board board){
+    private boolean containsInPath(final State state, final Board board) {
         State state2 = state;
         while (true){
             if(state2.getBoard().equals(board)) return true;

@@ -54,8 +54,14 @@ sudakov@ws-dss.com
 
 Преподаватель: Семенов Григорий Евгеньевич
 
-* [Код](https://github.com/MaximDmitrievich/IT-master/tree/master/HighLevelLangs/Code)
+* [Код](https://github.com/MaximDmitrievich/IT-master/tree/master/HighLevelLangs/code)
 * [Лекции](https://github.com/MaximDmitrievich/IT-master/blob/master/HighLevelLangs/Lection)
+
+#### Домашние задания
+
+* [Пятнашки](https://github.com/MaximDmitrievich/IT-master/tree/master/HighLevelLangs/code/hw/fifteens)
+* [Jira](https://github.com/MaximDmitrievich/IT-master/tree/master/HighLevelLangs/code/hw/jira)
+* [Репозиторий](https://github.com/MaximDmitrievich/IT-master/tree/master/HighLevelLangs/code/hw/repos)
 
 ### Индустрия 4.0
 

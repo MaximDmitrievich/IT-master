@@ -2,7 +2,7 @@ package highlevellangs.code.hw.repos.simple.program;
 
 import highlevellangs.code.hw.repos.simple.service.ProjectService;
 
-public class Program {
+public class Repos {
     public static void main(String[] args) {
         System.out.println("Test database:\n");
 

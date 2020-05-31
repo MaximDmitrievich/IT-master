@@ -59,7 +59,7 @@ sudakov@ws-dss.com
 
 #### Домашние задания
 
-* [Пятнашки](https://github.com/MaximDmitrievich/IT-master/tree/master/HighLevelLangs/code/hw/fifteens)
+* [Пятнашки](https://github.com/MaximDmitrievich/IT-master/tree/master/HighLevelLangs/code/hw/fifthteens)
 * [Jira](https://github.com/MaximDmitrievich/IT-master/tree/master/HighLevelLangs/code/hw/jira)
 * [Репозиторий](https://github.com/MaximDmitrievich/IT-master/tree/master/HighLevelLangs/code/hw/repos)
 

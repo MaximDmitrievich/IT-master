@@ -1,14 +1,30 @@
 package highlevellangs.code.hw.jira.src.models.task;
 
-public class Task {
-    private int number;
+import java.util.List;
 
-    public void setNumber(int number) {
-        this.number = number;
+public class Task {
+    private int duration;
+
+    private List<Integer> neededResources;
+    private List<Integer> followers;
+
+    public Task(int duration, List<Integer> neededResources, List<Integer> followers) {
+        this.duration = duration;
+
+        this.neededResources = neededResources;
+        this.followers = followers;
     }
 
-    public int getNumber() {
-        return this.number;
+    public List<Integer> getFollowers() {
+        return followers;
+    }
+
+    public List<Integer> getNeededResources() {
+        return neededResources;
+    }
+
+    public int getDuration() {
+        return duration;
     }
 
 }

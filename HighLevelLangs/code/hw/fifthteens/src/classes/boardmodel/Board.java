@@ -59,7 +59,7 @@ public class Board extends AbstractBoard {
             for (int j = 0; j < blocks.length; j++) {
                 s.append(String.format("%2d ", blocks[i][j]));
             }
-            s.append("n");
+            s.append("|");
         }
         return s.toString();
     }
